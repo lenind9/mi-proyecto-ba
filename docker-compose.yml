@@ -49,7 +49,7 @@ services:
     depends_on:
       - postgres
 
-    frontend:
+  frontend:
     container_name: vue_frontend
     image: nginx:alpine
     ports:

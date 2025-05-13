@@ -49,11 +49,19 @@ services:
     depends_on:
       - postgres
 
+  backend:
+    build:
+      context: .
+    ports:
+      - "8081:8080"
+    depends_on:
+      - postgres
+
   frontend:
     container_name: vue_frontend
     image: nginx:alpine
     ports:
-      - "80:80"
+      - "8081:80"
     volumes:
       - ../mi-proyecto-fr/dist:/usr/share/nginx/html
     depends_on:
